@@ -29,6 +29,12 @@ A cada merge na `main`, o site é atualizado automaticamente em alguns minutos, 
 `https://ricardomedeiros1.github.io/meuportfolio/`. O arquivo `.nojekyll` desativa o
 processamento Jekyll do GitHub, que não é necessário aqui.
 
+### Cache do navegador
+
+Os links de `style.css` e `script.js` no `index.html` terminam em `?v=AAAAMMDD`. Sempre que
+editar um desses arquivos, atualize esse número (por exemplo, `?v=20261015`). Assim os
+visitantes recebem a versão nova na hora, em vez de uma cópia antiga guardada em cache.
+
 ## Estrutura
 
 | Arquivo | Função |
