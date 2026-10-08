@@ -23,7 +23,7 @@ basta servir a pasta (por exemplo, GitHub Pages).
 | `index.html` | Página única com todas as seções |
 | `style.css` | Estilos (tema escuro, responsivo) |
 | `script.js` | Menu mobile, animações e calculadora |
-| `images/` | Foto, logo e favicon |
+| `images/` | Foto, logo (`logo.svg`, usado também como favicon) e ícone para iOS |
 | `sobre.html`, `escolaridade.html`, `historico.html` | Redirecionam para as seções equivalentes do `index.html` |
 
 ## Privacidade
