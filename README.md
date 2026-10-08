@@ -13,8 +13,19 @@ python3 -m http.server 8000
 # abra http://localhost:8000
 ```
 
-Também funciona abrindo o `index.html` direto no navegador. Para publicar,
-basta servir a pasta (por exemplo, GitHub Pages).
+Também funciona abrindo o `index.html` direto no navegador.
+
+## Publicação (GitHub Pages)
+
+O site é estático e não precisa de build. Para publicar:
+
+1. No GitHub, abra **Settings → Pages**.
+2. Em **Build and deployment → Source**, escolha **Deploy from a branch**.
+3. Selecione a branch **`main`** e a pasta **`/ (root)`**, e clique em **Save**.
+
+A cada merge na `main`, o site é atualizado automaticamente em alguns minutos, em
+`https://ricardomedeiros1.github.io/meuportfolio/`. O arquivo `.nojekyll` desativa o
+processamento Jekyll do GitHub, que não é necessário aqui.
 
 ## Estrutura
 
