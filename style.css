@@ -468,25 +468,24 @@ h3 {
     align-items: start;
 }
 
+/* Sem moldura: tamanho limitado e a parte de baixo esvanece no fundo da página */
 .about-photo {
     width: 100%;
-    max-width: 340px;
+    max-width: 320px;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(to bottom, #000 50%, transparent 98%);
+    mask-image: linear-gradient(to bottom, #000 50%, transparent 98%);
 }
 
-/* Sem moldura: a foto tem tamanho limitado e as quatro bordas esvanecem no fundo */
+/* Recorte mais fechado (busto) para o rosto aparecer maior */
 .about-photo img {
-    --fade: 16%;
     width: 100%;
-    aspect-ratio: 4 / 5;
+    height: 100%;
     object-fit: cover;
-    -webkit-mask-image:
-        linear-gradient(to right, transparent, #000 var(--fade), #000 calc(100% - var(--fade)), transparent),
-        linear-gradient(to bottom, transparent, #000 var(--fade), #000 calc(100% - var(--fade)), transparent);
-    -webkit-mask-composite: source-in;
-    mask-image:
-        linear-gradient(to right, transparent, #000 var(--fade), #000 calc(100% - var(--fade)), transparent),
-        linear-gradient(to bottom, transparent, #000 var(--fade), #000 calc(100% - var(--fade)), transparent);
-    mask-composite: intersect;
+    object-position: 50% 0;
+    transform: scale(1.3);
+    transform-origin: 51% 22%;
 }
 
 .about-text h2 {
