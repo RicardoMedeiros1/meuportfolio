@@ -500,7 +500,7 @@ h3 {
 
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
 }
 
@@ -783,16 +783,16 @@ h3 {
     border-left: 2px solid var(--border);
 }
 
-.timeline li {
+.timeline > li {
     position: relative;
     padding-bottom: 30px;
 }
 
-.timeline li:last-child {
+.timeline > li:last-child {
     padding-bottom: 0;
 }
 
-.timeline li::before {
+.timeline > li::before {
     content: '';
     position: absolute;
     left: -37px;
@@ -823,10 +823,42 @@ h3 {
     font-size: .88rem;
 }
 
-.timeline li > p:last-child:not(.org) {
+.timeline > li > p:last-child:not(.org) {
     margin-top: 8px;
     color: var(--muted);
     font-size: .9rem;
+}
+
+.roles {
+    margin-top: 14px;
+    display: grid;
+    gap: 10px;
+}
+
+.roles li {
+    padding: 14px 16px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+}
+
+.role-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 2px 12px;
+}
+
+.role-head strong {
+    font-size: .95rem;
+}
+
+.roles p {
+    margin-top: 6px;
+    color: var(--muted);
+    font-size: .86rem;
+    line-height: 1.55;
 }
 
 .courses li {

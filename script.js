@@ -64,11 +64,19 @@
     var now = new Date();
     document.getElementById('year').textContent = now.getFullYear();
 
-    var yearsEl = document.querySelector('[data-years-since]');
+    // data-years-ranges="2017-12/2020-04,2023-01/now": soma os períodos (em meses) e mostra os anos completos
+    var yearsEl = document.querySelector('[data-years-ranges]');
     if (yearsEl) {
-        var parts = yearsEl.getAttribute('data-years-since').split('-');
-        var since = new Date(Number(parts[0]), Number(parts[1]) - 1, 1);
-        var years = Math.floor((now - since) / (365.25 * 24 * 3600 * 1000));
+        var toMonths = function (s) {
+            if (s === 'now') return now.getFullYear() * 12 + now.getMonth();
+            var p = s.split('-');
+            return Number(p[0]) * 12 + (Number(p[1]) - 1);
+        };
+        var months = yearsEl.getAttribute('data-years-ranges').split(',').reduce(function (sum, range) {
+            var ends = range.split('/');
+            return sum + Math.max(0, toMonths(ends[1]) - toMonths(ends[0]));
+        }, 0);
+        var years = Math.floor(months / 12);
         if (years >= 1) yearsEl.textContent = years + '+';
     }
 
