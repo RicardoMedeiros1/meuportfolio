@@ -1,5 +1,7 @@
 # Portfólio — Ricardo Medeiros
 
+🔗 **Site:** https://ricardomedeiros1.github.io/meuportfolio/
+
 Site estático (HTML, CSS e JavaScript puros, sem build nem dependências) com:
 
 - apresentação, skills, trajetória e formação;
