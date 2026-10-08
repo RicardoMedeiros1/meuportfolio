@@ -469,24 +469,24 @@ h3 {
 }
 
 .about-photo {
-    position: relative;
+    width: 100%;
+    max-width: 340px;
 }
 
-.about-photo::before {
-    content: '';
-    position: absolute;
-    inset: 14px -14px -14px 14px;
-    border: 2px solid var(--accent);
-    border-radius: 24px;
-    opacity: .6;
-}
-
+/* Sem moldura: a foto tem tamanho limitado e as quatro bordas esvanecem no fundo */
 .about-photo img {
-    position: relative;
+    --fade: 16%;
     width: 100%;
     aspect-ratio: 4 / 5;
     object-fit: cover;
-    border-radius: 24px;
+    -webkit-mask-image:
+        linear-gradient(to right, transparent, #000 var(--fade), #000 calc(100% - var(--fade)), transparent),
+        linear-gradient(to bottom, transparent, #000 var(--fade), #000 calc(100% - var(--fade)), transparent);
+    -webkit-mask-composite: source-in;
+    mask-image:
+        linear-gradient(to right, transparent, #000 var(--fade), #000 calc(100% - var(--fade)), transparent),
+        linear-gradient(to bottom, transparent, #000 var(--fade), #000 calc(100% - var(--fade)), transparent);
+    mask-composite: intersect;
 }
 
 .about-text h2 {
