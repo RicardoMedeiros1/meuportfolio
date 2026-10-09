@@ -3,18 +3,18 @@
    ========================================================== */
 
 :root {
-    --bg: #0a0a0b;
-    --bg-alt: #101012;
-    --surface: #151518;
-    --border: #26262b;
-    --text: #ededf0;
-    --muted: #a0a0ab;
-    --accent: #ff4d4d;
-    --accent-ink: #0a0a0b;
-    --ok: #4ade80;
-    --warn: #fbbf24;
-    --bad: #ff6b6b;
-    --radius: 16px;
+    --bg: #05090c;
+    --bg-alt: #070d11;
+    --surface: #0a1217;
+    --border: #14313a;
+    --text: #cfe8ea;
+    --muted: #6f9399;
+    --accent: #22d3a0;
+    --accent-ink: #04120d;
+    --ok: #22d3a0;
+    --warn: #f5b942;
+    --bad: #ff5c6c;
+    --radius: 4px;
     --header-h: 72px;
 }
 
@@ -33,11 +33,11 @@ html {
 }
 
 body {
-    font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    font-family: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace;
     background: var(--bg);
     color: var(--text);
     line-height: 1.65;
-    font-size: 16px;
+    font-size: 15px;
     -webkit-font-smoothing: antialiased;
 }
 
@@ -99,16 +99,19 @@ h4 {
 }
 
 h1 {
-    font-size: clamp(2.2rem, 5.2vw, 3.6rem);
+    font-size: clamp(2rem, 4.6vw, 3.3rem);
     font-weight: 700;
+    line-height: 1.12;
+    letter-spacing: -0.03em;
 }
 
 h2 {
-    font-size: clamp(1.7rem, 3.4vw, 2.4rem);
+    font-size: clamp(1.45rem, 3vw, 2.1rem);
+    font-weight: 700;
 }
 
 h3 {
-    font-size: 1.1rem;
+    font-size: 1rem;
 }
 
 .dot {
@@ -122,6 +125,17 @@ h3 {
     letter-spacing: .14em;
     text-transform: uppercase;
     margin-bottom: 14px;
+}
+
+.eyebrow::before {
+    content: '// ';
+}
+
+.section-head h2::before,
+.about-text h2::before,
+.contact h2::before {
+    content: '# ';
+    color: var(--accent);
 }
 
 .lead {
@@ -138,10 +152,12 @@ h3 {
 
 .btn {
     display: inline-block;
-    padding: 12px 28px;
-    border-radius: 999px;
-    font-weight: 600;
-    font-size: .95rem;
+    padding: 12px 26px;
+    border-radius: 2px;
+    font-weight: 700;
+    font-size: .8rem;
+    text-transform: uppercase;
+    letter-spacing: .06em;
     border: 1px solid transparent;
     transition: transform .2s, box-shadow .2s, background-color .2s, border-color .2s;
 }
@@ -156,16 +172,16 @@ h3 {
 }
 
 .btn-primary:hover {
-    box-shadow: 0 8px 24px rgba(255, 77, 77, .28);
+    box-shadow: 0 0 26px rgba(34, 211, 160, .45);
 }
 
 .btn-ghost {
-    border-color: var(--border);
-    color: var(--text);
+    border-color: var(--accent);
+    color: var(--accent);
 }
 
 .btn-ghost:hover {
-    border-color: var(--muted);
+    background: rgba(34, 211, 160, .1);
 }
 
 /* ---------- Cabeçalho ---------- */
@@ -175,7 +191,7 @@ h3 {
     top: 0;
     z-index: 50;
     height: var(--header-h);
-    background: rgba(10, 10, 11, .82);
+    background: rgba(5, 9, 12, .86);
     -webkit-backdrop-filter: blur(12px);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border);
@@ -231,8 +247,8 @@ h3 {
     display: block;
     padding: 8px 14px;
     color: var(--muted);
-    font-size: .92rem;
-    border-radius: 999px;
+    font-size: .8rem;
+    border-radius: 2px;
     transition: color .2s;
 }
 
@@ -248,15 +264,19 @@ h3 {
 
 .menu .menu-cta {
     margin-left: 10px;
-    padding: 8px 22px;
-    background: var(--accent);
-    color: var(--accent-ink);
-    font-weight: 600;
+    padding: 8px 20px;
+    background: transparent;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .06em;
 }
 
 .menu .menu-cta:hover {
+    background: var(--accent);
     color: var(--accent-ink);
-    box-shadow: 0 6px 18px rgba(255, 77, 77, .28);
+    box-shadow: 0 0 22px rgba(34, 211, 160, .4);
 }
 
 .menu-toggle {
@@ -265,7 +285,7 @@ h3 {
     height: 44px;
     background: none;
     border: 1px solid var(--border);
-    border-radius: 12px;
+    border-radius: 4px;
     cursor: pointer;
     flex-direction: column;
     align-items: center;
@@ -326,6 +346,19 @@ h3 {
     border: 1px solid var(--border);
     border-radius: var(--radius);
     padding: 28px;
+    position: relative;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: var(--accent);
+    opacity: .75;
+    border-radius: var(--radius) 0 0 var(--radius);
 }
 
 /* ---------- Hero ---------- */
@@ -333,7 +366,9 @@ h3 {
 .hero {
     padding: 88px 0 96px;
     background:
-        radial-gradient(60% 50% at 85% 10%, rgba(255, 77, 77, .12), transparent 70%),
+        linear-gradient(rgba(34, 211, 160, .07) 1px, transparent 1px) 0 0 / 48px 48px,
+        linear-gradient(90deg, rgba(34, 211, 160, .07) 1px, transparent 1px) 0 0 / 48px 48px,
+        radial-gradient(60% 60% at 80% 0%, rgba(34, 211, 160, .14), transparent 70%),
         var(--bg);
 }
 
@@ -372,6 +407,7 @@ h3 {
 .hero-facts strong {
     font-size: 1.6rem;
     line-height: 1.2;
+    color: var(--accent);
 }
 
 .hero-facts span {
@@ -382,11 +418,11 @@ h3 {
 /* Terminal decorativo */
 
 .terminal {
-    background: #0d0d10;
+    background: #03070a;
     border: 1px solid var(--border);
     border-radius: var(--radius);
     overflow: hidden;
-    box-shadow: 0 30px 60px -30px rgba(0, 0, 0, .8);
+    box-shadow: 0 0 50px -12px rgba(34, 211, 160, .45);
 }
 
 .terminal-bar {
@@ -426,8 +462,8 @@ h3 {
 .terminal pre {
     padding: 22px 20px;
     overflow-x: auto;
-    font-family: ui-monospace, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace;
-    font-size: .86rem;
+    font-family: inherit;
+    font-size: .84rem;
     line-height: 1.8;
     color: var(--text);
 }
@@ -509,7 +545,7 @@ h3 {
     padding: 18px 20px;
     background: var(--surface);
     border: 1px solid var(--border);
-    border-radius: 14px;
+    border-radius: 4px;
 }
 
 .values h3 {
@@ -540,7 +576,7 @@ h3 {
     margin-left: 6px;
     padding: 2px 10px;
     border: 1px solid var(--border);
-    border-radius: 999px;
+    border-radius: 2px;
     color: var(--muted);
     font-size: .68rem;
     font-weight: 500;
@@ -554,16 +590,27 @@ h3 {
 }
 
 .chips li {
-    padding: 6px 14px;
-    background: rgba(255, 255, 255, .04);
+    padding: 6px 12px;
+    background: transparent;
     border: 1px solid var(--border);
-    border-radius: 999px;
-    font-size: .85rem;
+    border-radius: 2px;
+    color: var(--accent);
+    font-size: .8rem;
+}
+
+.chips li::before {
+    content: '[ ';
+    opacity: .6;
+}
+
+.chips li::after {
+    content: ' ]';
+    opacity: .6;
 }
 
 .chips-sm li {
-    padding: 3px 11px;
-    font-size: .76rem;
+    padding: 3px 9px;
+    font-size: .72rem;
     color: var(--muted);
 }
 
@@ -598,7 +645,7 @@ h3 {
     flex-shrink: 0;
     padding: 2px 10px;
     border: 1px solid var(--border);
-    border-radius: 999px;
+    border-radius: 2px;
     color: var(--muted);
     font-size: .68rem;
     font-weight: 500;
@@ -631,9 +678,9 @@ h3 {
     position: absolute;
     left: 0;
     top: .65em;
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
+    width: 6px;
+    height: 6px;
+    border-radius: 0;
     background: var(--accent);
 }
 
@@ -686,7 +733,7 @@ h3 {
     background: var(--bg);
     color: var(--text);
     border: 1px solid var(--border);
-    border-radius: 10px;
+    border-radius: 4px;
     font: inherit;
     font-size: .95rem;
     transition: border-color .2s;
@@ -701,7 +748,7 @@ h3 {
 .field select:focus-visible {
     outline: none;
     border-color: var(--accent);
-    box-shadow: 0 0 0 3px rgba(255, 77, 77, .2);
+    box-shadow: 0 0 0 3px rgba(34, 211, 160, .22);
 }
 
 .lab-result {
@@ -731,7 +778,7 @@ h3 {
 .status {
     display: inline-block;
     padding: 5px 14px;
-    border-radius: 999px;
+    border-radius: 2px;
     border: 1px solid var(--border);
     color: var(--muted);
     font-size: .82rem;
@@ -826,7 +873,7 @@ h3 {
     top: 7px;
     width: 12px;
     height: 12px;
-    border-radius: 50%;
+    border-radius: 0;
     background: var(--bg);
     border: 2px solid var(--accent);
 }
@@ -866,7 +913,7 @@ h3 {
     padding: 14px 16px;
     background: var(--surface);
     border: 1px solid var(--border);
-    border-radius: 12px;
+    border-radius: 4px;
 }
 
 .role-head {
@@ -930,6 +977,17 @@ h3 {
     gap: 8px 24px;
 }
 
+/* ---------- Linhas de varredura (efeito de monitor, bem sutil) ---------- */
+
+body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 90;
+    pointer-events: none;
+    background: repeating-linear-gradient(to bottom, rgba(255, 255, 255, .03) 0 1px, transparent 1px 3px);
+}
+
 /* ---------- Animação de entrada (só com JS) ---------- */
 
 .js .reveal {
@@ -971,7 +1029,8 @@ h3 {
     }
 
     .lab-result {
-        position: static;
+        position: relative;
+        top: auto;
     }
 }
 
